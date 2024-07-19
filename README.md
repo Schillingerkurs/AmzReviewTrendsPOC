@@ -23,7 +23,7 @@ The goal is role skema is to tailer the insights of the analysis to the real nee
 
 Deployed to production, the Analysis of this POC would be a batch process that is executed once a reasonable amount of news reviews (e.g. 1000) are published and the cureent cloud computing costs are low. The flow diagrams of this process  could look like this:
 
-![flow](reports\flowdiagramm\1721376795149.png)
+![flow](reports/flowdiagramm/1721376795149.png)
 
 
 
@@ -126,6 +126,3 @@ For now, I deploy the POC simply on a local machine.
         └── visualize.py
 ```
 
---------
-
-# AmzReviewTrendsPOC

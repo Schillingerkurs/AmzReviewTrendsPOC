@@ -1,0 +1,50 @@
+@startuml
+
+start
+
+:Check New Reviews Count;
+if (New Reviews > n (1000) ) then (yes)
+    :Check Cloud Resource Cost;
+    if (Currently Cheap?) then (yes)
+        :Load File;
+        :Extract Columns;
+        partition "Columns" {
+            :review rating; headline title; <b>asin</b>; etc.;
+        }
+
+        if (Is file loaded successfully?) then (yes)
+            :Parse File Content;
+            :Validate Data;    
+             note right
+                    <font color=red> Bot/Spam detection </font>
+                end note
+            if (Is data valid?) then (yes)
+                :Fetch Additional Info via API;
+                note right
+                    <font color=red> Product information (from asin)</font>
+                end note
+                :Transform Data; 
+                note right
+                    <font color=blue> BERTopic </font>
+                end note
+                :Store Data into Database;
+                :Show Data in Dashboard;
+                note right
+                    <font color=blue> Streamlit </font>
+                end note
+            else (no)
+                :Log Validation Errors;
+            endif
+        else (no)
+            :Log Loading Error;
+        endif
+    else (no)
+        :Log High Resource Cost;
+    endif
+else (no)
+    :Log Insufficient Reviews;
+endif
+
+stop
+
+@enduml
