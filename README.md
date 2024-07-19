@@ -69,10 +69,7 @@ I save the model locally with `.safetensors`
 
 To demonstrate the insight the current project can provide, do we use a simple dashboard with [Streamlit](https://streamlit.io/) that show for each stakeholder the relevant metrics that help to make decisions. 
 
-For now, I deploy the POC simply on a local machine. 
-
-
-
+For now, I deploy the streamlit app simply on a local machine. 
 
 ## Project Organization
 
