@@ -15,7 +15,7 @@ HERE = Path(os.getcwd()).parent.parent
 
 # Define paths to HTML files
 html_file_path_product_owner = HERE/Path("reports/figures/yoga_mat.html")
-html_file_path_management = HERE/Path("reports/figures/bert_topics.html")
+
 
 # Create a sidebar for stakeholder selection
 st.sidebar.title("Select Role")
@@ -30,6 +30,7 @@ if stakeholder == "Product Owner":
 
 elif stakeholder == "Management":
     st.title("Dashboard for Management")
-    with open(html_file_path_management, 'r', encoding='utf-8') as f:
-        html_content = f.read()
-    st.components.v1.html(html_content, height=1200, scrolling=True)
+    st.write("Hi Katrin")
+
+
+

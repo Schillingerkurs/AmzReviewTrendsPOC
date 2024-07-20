@@ -51,68 +51,90 @@ Felix Schilling, PhD
 
 
 ---
-This presentation 
+# This presentation 
 
 - Amazon Review Trends  POC (20 min)
+  - Goal of the Project
   - Project plan
   - POC model
-
 -  Retrievel-Augmented Generation (RAG) (10 min)
+
+---
+# The Goal
+
+Provide **useful insights** from customer feedback to stakeholders in the health and personal care sector. 
 
 
 ---
 
 #  Project plan
 
-- Initial Stakeholder Consultation
+- The big picture
 - POC pipeline 
-  - batch process , API , cleaning
-  - Feature generation
-  - Model Development 
-  - Deployment
-- Visualization and Reporting
-- Stakeholder Feedback and Next steps 
+  - Initial Stakeholder Consultation
+  - Batch process, API, cleaning
+  - Model Development  & Deployment
+  - Visualization and Reporting
 
-
----
-# The challenge
-
- Sequential text data: 
-  - 1) Text dimension (structured and unstructured)
-  - 2) Time dimension
-
-= Complex data space, i.e. plenty of options to improve products and services. **We need to focus on the core needs of the stakeholders.**
-
----
-# 1. Initial Stakeholder Consultation
-
-We need to understand role, needs and metrics for the stakeholders improve their  products and services.
-
-
-- Example:
-  - Role: Product owner 
-  - Task: Needs to know at what point in time they receive valuable feedback.
-  - Metric: Estimate feedback can one expect.
-
-- Example 2: 
-  - Role: Compliance Specialist for the SEC.
-  - Needs: Needs to know of miss use of products, to avoid lawsuits 
-  - Metric: Product that reviews that mention drug abuse. 
-
+- Dashboards for specific stakeholders (accessible)
+- Include feedback from actions into the model.
 
 ---
 
-# Data Pipeline
-
- - Figure: Batch process, API
- - feature Engeninnering
- - Model 
- - Deployment
-
+# The big picture I: 
  
-- Named entity recognition (NER)
-- relationship extraction 
-- **Implementation:** Spacy 
+ - Overall good quality of the reviews. 
+ - Bots/Spam seems to be filtered out.
+ - **Assumption:** Reviews are "honest" i.e. we can implement what they say to improve products. ( We can test this later)
+
+
+---
+# The big picture II: 
+## Topics & Trends are to complex to discuss them as a whole.  
+
+
+<div class="columns">
+<div>
+
+  1) Text dimension (structured and unstructured): > 3000 Topics with BERT
+  2) Time dimension: >22 years
+  3) ASIN codes: >60k unique product
+
+
+**Let's focus on the core needs of specific stakeholders.**
+
+
+</div>
+<div>
+
+Show Image of the Topic map here. 
+<img src="../data/raw/profile_Felix_Schilling.jpg" alt="profil_felix" style="max-width: 55%; border-radius: 50%;">
+
+</div>
+</div>
+
+
+---
+# Initial Stakeholder Consultation
+
+Let's define role, needs and metrics of our stakeholders.
+
+**Q: What's the challenge and metric defines the solution?**
+
+
+---
+# Stakeholder roles examples
+
+1. Product owner 
+    -  Needs to know what people do (not) like about a specific product.
+    -  Interested in the lifecycle since release. 
+    -  Metric: Estimate feedback can one expect.
+
+
+2. Marketing Strategies
+    - Interested in products that work via Indirect Consumer Marketing 
+    - Purchase decision within a household or close relationship
+    - Example: A spouse or partner buys your shower gel.
 
 
 ---
@@ -123,21 +145,51 @@ We need to understand role, needs and metrics for the stakeholders improve their
 
 ---
 
-# Example Dashboard: Product owner.
 
-- Streamlit
+# Model Development
 
-- Dashboards for the specific user case.
+BERTtopic.
+- Find topics and trends with an unsupdervised Algorithm.
+- AI (ChatGPT) to label Topic themes.
 
-Guarantee that the Alg is 
-- closely monitored
-- future proof
-- compliant with all relevant regulations.
-- Uphold ethical standards in the development and deployment of AI.
+Link to ASIN and Time variables before hand.
+ - Select only the **relevant** reviews for each task.
+ - Increases accuracy and reduces runtime.
 
 ---
 
-# 3. Model Development
+# Dashboard
+
+Accessible "micro insights" for each stakeholder.
+
+- How do the metrics that matter for my task look like?
+- How do my actions relate this ?
+
+
+
+(Screenshot of the streamlit Dashboard)
+
+---
+
+
+# Timeline / Phases
+
+- Initial Meeting
+- POC presentation for low level stakeholders
+- Revision POC based on stakeholder feedback
+- Presentation to larger audience. 
+
+
+
+
+
+---
+
+# RAG
+
+
+
+---
 
 RAG (Retrieval-Augmented Generation) Integration
 - For information retrieval to enhance accuracy.
@@ -148,54 +200,27 @@ RAG (Retrieval-Augmented Generation) Integration
 
 ---
 
-# 4. Training & Validation
-
-- Review Data Preprocessing
-- Training and fine-tune using domain-specific data.
-- Validation
-  - Cross-validate using separate datasets.
-  - Error analysis and refine the model.
-
-
-Goal: A robust model !
- - make sure we meet the predefined accuracy efficiency metrics.
-
-If the model is not good enough: 
-- Circle back to domain specific experts: What mistakes does the model do wrong?
-- Select better relevant/data 
-- Simplify classification.
-
----
-
-# 5. Deployment & Monitoring
-
-Deployment (in test environment):
-- Integrate into existing infrastructure.
-- **Implementation:**  Docker
-- Ensure compatibility with data pipelines and user interfaces.
-- Show deployed model to stakeholders w. domain knowledge first.
-
-
-Monitoring:
-- Set up real-time monitoring for performance tracking.
-- Implement feedback loops for continuous improvement.
-- **Implementation:**  Streamlit, PowerBi, etc.
+# Considerations: Architecture 
 
 
 ---
 
 
-# RAG
-
+# Interaction between retrieval and generation components
 
 ---
 
-# Disclaimer
+# Querying process:
 
-I created these slides using the following VS extensions 
-- Copilot 
-- Marp for VS Code
+- Align with existing Tech Stack if possible.
+- Tokenization
+- 
 
+
+---
+# Choice of generative model.
+- A/B testing at low costs
+- Ollama. ( GPT-4, Llama 3) and Langchain
 
 ---
 

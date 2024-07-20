@@ -23,50 +23,50 @@ HERE = Path(os.getcwd()).parent.parent
 df = pd.read_pickle(HERE/ "data"/"raw"/ "hist_review_data.pkl")
 
 
-# Extract the 'text' column
-texts = df['text'].astype(str).tolist()
+# # Extract the 'text' column
+# texts = df['text'].astype(str).tolist()
 
-# Initialize BERTopic
-vectorizer_model = CountVectorizer(stop_words="english")
-topic_model = BERTopic(vectorizer_model=vectorizer_model)
-
-
-
-
-
-# # Fit the model on the texts
-topics, probabilities = topic_model.fit_transform(texts)
+# # Initialize BERTopic
+# vectorizer_model = CountVectorizer(stop_words="english")
+# topic_model = BERTopic(vectorizer_model=vectorizer_model)
 
 
 
 
-# Reduce outliers ( i.e. the -1 topic)
-reduced_topics = topic_model.reduce_outliers(texts, topics)
+
+# # # Fit the model on the texts
+# topics, probabilities = topic_model.fit_transform(texts)
 
 
 
-# # Save the resulting topics and probabilities to the DataFrame
-df['topic'] = topics
-df["topics_reduced"] = reduced_topics
-df['probability'] = probabilities
-# Save the DataFrame with topics to a new file
-output_file_path = os.path.join(HERE, "data", "interim", "hist_review_data_with_topics.pkl")
-df.to_pickle(output_file_path)
+
+# # Reduce outliers ( i.e. the -1 topic)
+# reduced_topics = topic_model.reduce_outliers(texts, topics)
 
 
 
-# # Print the topics
-t = topic_model.get_topic_info()
+# # # Save the resulting topics and probabilities to the DataFrame
+# df['topic'] = topics
+# df["topics_reduced"] = reduced_topics
+# df['probability'] = probabilities
+# # Save the DataFrame with topics to a new file
+# output_file_path = os.path.join(HERE, "data", "interim", "hist_review_data_with_topics.pkl")
+# df.to_pickle(output_file_path)
 
 
-fig = topic_model.visualize_topics()
-html_file_path = HERE/"reports"/"figures"/"bert_topics.html"
 
-pio.write_html(fig, file=html_file_path, auto_open=True)
+# # # Print the topics
+# t = topic_model.get_topic_info()
 
 
-embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
-topic_model.save( HERE/"models"/"bert_basic", serialization="safetensors", save_ctfidf=True, save_embedding_model=embedding_model)
+# fig = topic_model.visualize_topics()
+# html_file_path = HERE/"reports"/"figures"/"bert_topics.html"
+
+# pio.write_html(fig, file=html_file_path, auto_open=True)
+
+
+# embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
+# topic_model.save( HERE/"models"/"bert_basic", serialization="safetensors", save_ctfidf=True, save_embedding_model=embedding_model)
 
 
 

@@ -16,9 +16,11 @@ Let's consider two cases for this POC:
     - Management: What are the five most discussed topics among the 200 most reviewed products?
     - Product Owner: How does the forecast of a review lifecycle look after a product is launched?
 
-The goal is role skema is to tailer the insights of the analysis to the real needs of stakeholders. This focus helps to ensures the overall quality of the product and allocate resources in a efficient way.
+The goal is role scheme is to tailer the insights of the analysis to the real needs of stakeholders. This focus helps to ensures the overall quality of the product and allocate resources in a efficient way.
 
-Deployed to production, the Analysis of this POC would be a batch process that is executed once a reasonable amount of news reviews (e.g. 1000) are published and the cureent cloud computing costs are low. The flow diagrams of this process  could look like this:
+### Pipeline Structure
+
+The flow diagram outlines how this analysis could be deployed to production as batch process that is executed once a reasonable amount of news reviews (e.g. 1000) are published and the cureent cloud computing costs are low. This POC illustrates the core features of the project.
 
 ![flow](reports/flowdiagramm/1721376795149.png)
 
