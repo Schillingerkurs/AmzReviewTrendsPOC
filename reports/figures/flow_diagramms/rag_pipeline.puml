@@ -1,0 +1,21 @@
+@startuml
+
+title RAG Pipeline
+
+actor User as user
+
+component "Retrieval System" as retrievalSystem
+component "Generative Model" as generativeModel
+component "Integration Tool" as integrationTool
+
+user -> retrievalSystem : Retrieve relevant information
+retrievalSystem -> integrationTool : Send relevant information
+integrationTool -> generativeModel : Integrate and query generative model
+generativeModel -> user : Provide accurate and relevant response
+
+note right of user
+  Objective: Enhance accuracy in customer support responses.
+  Method: Integrate domain-specific knowledge with a pretrained model.
+end note
+
+@enduml

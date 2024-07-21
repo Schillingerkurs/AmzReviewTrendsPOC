@@ -7,15 +7,13 @@ Created on Sun Jul 21 16:28:41 2024
 import os
 import pandas as pd
 from pathlib import Path
-from bertopic import BERTopic
+#from bertopic import BERTopic
 from sklearn.feature_extraction.text import CountVectorizer
 import plotly.io as pio
 import json
 #from umap import UMAP
 from dotenv import load_dotenv
 
-
-import openai
 
 
 # Load environment variables from .env file
@@ -62,38 +60,22 @@ def Load_topics(HERE):
 
 
 # Load the DataFrame
-df = load_data(HERE / "data" / "raw" / "hist_review_data.pkl")
+df = load_data(HERE / "data" / "interim" / "hist_review_data_with_topics.pkl")
 
 
  
 topics_data = Load_topics(HERE)
+
+relations = [2,3,13]
     
+relation_comment = (df.loc[df['topics_reduced'].isin(relations)]
+                    .query("helpful_vote> 100")
+                    [['title', 'text', 'asin']]
+                    )
     
 
 
 
-
-
-
-# Path to the JSON file containing topics
-topics_path = '/path/to/your/models/bert_basic/topics.json'
-
-
-prompt="Correct this to standard English:\n\nShe no went to the market.",
-
-
-openai.api_key = os.environ.get("OPENAI_KEY")
-
-
-response = openai.Completion.create(
-  model="code-davinci-002",
-  prompt=  prompt,
-  temperature=0,
-  max_tokens=64,
-  top_p=1.0,
-  frequency_penalty=0.0,
-  presence_penalty=0.0
-)
 
 
 

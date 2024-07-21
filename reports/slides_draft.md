@@ -55,45 +55,47 @@ Felix Schilling, PhD
 
 - Amazon Review Trends  POC (20 min)
   - Goal of the Project
-  - Project plan
+  - Project Plan
   - POC 
--  Retrievel-Augmented Generation (RAG) (10 min)
+-  Retrieval-Augmented Generation (RAG) (10 min)
 
 ---
 # The Goal
 
-Provide **useful insights** from customer feedback to stakeholders in the health and personal care sector. 
+Provide **useful insights** from customer feedback to stakeholders in Amazon's health and personal care sector. 
 
 
 ---
 
 #  Project plan
 
-- Workshop w. Stakeholder 
-- POC pipeline 
-  - Batch process, API, cleaning
-  - Model Development  & Deployment
-  - Visualization and Reporting
 
-- Dashboards for specific stakeholders (accessible)
-- Improve POC based on stakeholder (feedback loop).
+-  Workshop w. Stakeholder [Done]
+- POC Pipeline 
+  - Batch Process, API, Cleaning
+  - Model Development  & Deployment
+  - Accessible Visualization and Reporting using dashboards
+
+
+
+- Iterative improvements of POC based on stakeholder feedback loop.
 
 ---
 
-# The big picture I: 
+# The big Picture I: 
  
  - Overall good quality of the reviews. 
  - Bots/Spam seems to be filtered out.
 
 
- - **Assumption:** Reviews are "honest" 
+ - **Assumption:** Reviews are "honest". 
     - We can implement what they say to improve products.
     - We can test this assumption with the POC.
 
 
 ---
-# The big picture II: 
-## Topics & Trends are to complex to discuss them as a whole.  
+# The big Picture II: 
+## Topics & Trends are too complex to discuss them as a whole.  
 
 
 <div class="columns">
@@ -101,7 +103,7 @@ Provide **useful insights** from customer feedback to stakeholders in the health
 
   1) Text dimension (structured and unstructured): > 3000 Topics with BERT
   2) Time dimension: >22 years
-  3) ASIN codes: >60k unique product
+  3) ASIN codes: >60k unique products
 
 
 **Let's focus on  micro level cases for specific stakeholders.**
@@ -117,7 +119,7 @@ Provide **useful insights** from customer feedback to stakeholders in the health
 
 
 ---
-# Initial Stakeholder Consultation
+# Recap: Initial Stakeholder Consultation
 
 Let's define role, needs and metrics of our stakeholders.
 
@@ -153,8 +155,8 @@ Let's define role, needs and metrics of our stakeholders.
 # Model Development
 
 BERTtopic.
-- Find topics and trends with an unsupdervised Algorithm.
-- AI (ChatGPT) to label Topic themes.
+- Find topics and trends with an unsupervised Algorithm.
+- AI (ChatGPT) to label Topic Representation.
 
 Link to ASIN and Time variables before hand.
  - Select only the **relevant** reviews for each task.
@@ -167,21 +169,11 @@ Link to ASIN and Time variables before hand.
 Accessible "micro insights" for each stakeholder.
 
 - How do the metrics that matter for my task look like?
-- How do my actions relate this ?
+- How do my actions relate to this ?
 
 
 
 (Screenshot of the streamlit Dashboard)
-
----
-
-
-# Timeline / Phases
-
-- Initial Meeting
-- POC presentation for low level stakeholders
-- Revision POC based on stakeholder feedback
-- Presentation to a larger audience. 
 
 
 ---
@@ -191,7 +183,7 @@ Accessible "micro insights" for each stakeholder.
 
 ---
 
-# The goal 
+# The Goal 
 
  - Feeding  LLMs domain specific knowledge
   -  Better answers
@@ -200,7 +192,7 @@ Accessible "micro insights" for each stakeholder.
 
 
 ---
-# Main challange
+# Main Challenge
 
 
 <div class="columns">
@@ -208,7 +200,7 @@ Accessible "micro insights" for each stakeholder.
 
   1) Performance.
   2) Getting the right data.
-  3) Knowing what its (still) the right data.
+  3) Knowing that it's (still) the right data.
 
 
 
@@ -225,47 +217,47 @@ Accessible "micro insights" for each stakeholder.
 ---
 
 # Hypothesis 
-- Best Practices & existing tech stack to minimize the uptake in tech burden.
+- Best practices & existing tech stack to minimize the uptake in tech burden.
 
 - Domain specific experts are key.
   - They understand the problem
-  - The know what data exists
-  - The know what changed over the last years. 
+  - They know what data exists
+  - They know what changed over the last years. 
 
 
 Input quality of the data is crucial. 
 - (Semi-) structured data might be better for retrieval.
  
-
 ---
 
-## Architecture / Goal
+## How to build this
 
-- **RAG Pipeline**: Combines retrieval of relevant information with generative AI models to produce accurate and contextually relevant responses.
+- **RAG Pipeline**: Follow existing best practices (e.g. from [Nvidida repo](https://github.com/NVIDIA/GenerativeAIExamples?nvid=nv-int-tblg-585510)) using Langchain & Llama Index.
+- **For**
 
 - **Objective**: Enhance accuracy in customer support responses.
-- **Method**: Integrate domain-specific knowledge with a pretrained model.
+- **Method**: Integrate domain-specific knowledge with a pre-trained model.
 
-**Implementation Tool**: Ollama (DIY) , Azure (name of the fancy stuff)(?)
+**Implementation Examples**: Ollama (DIY), Azure AI Search (Corporate)
 
 
 ---
 
-## Toughs on Query Processing 
+## Thoughts on Query Processing 
 
-- **Tokenization**: pre-trained tokenizers from popular models (e.g., BERT) can save time and resources.
+- **Tokenization**: Pre-trained tokenizers from popular models (e.g., BERT) can save time and resources.
 - **Embedding**:  BERT, GPT, or domain-specific models.
 - **Ranking**:  User feedback!
 - **Selection**: Computationally efficient solution.
 
-I would follow industry standards and stick the existing tech stack (if possible) and focus on human feedback to the model. 
+Recommendable to follow industry standards and stick to the existing tech stack (if possible) and focus on human feedback to the model. 
 
 ---
 
 ## Choice of Generative Model
 
-- **Model Selection**: Use models from [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) for reference.
-- **A/B Testing** to find the best performing model for specifc uscase.
+- **Model Selection**: Compare models from [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) for reference.
+- **A/B Testing** to find the best performing model for specific use case.
 
 
 ---
@@ -332,7 +324,7 @@ I would follow industry standards and stick the existing tech stack (if possible
 
 - Consultants should focus on:  
   - Close collaboration with domain experts 
-  - Close aligment with existing cloud infrastructure. 
+  - Close alignment with existing cloud infrastructure. 
   - Garbage in, garbage out (GIGO) 
 
 ---
