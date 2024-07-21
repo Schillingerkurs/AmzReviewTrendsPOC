@@ -56,7 +56,7 @@ Felix Schilling, PhD
 - Amazon Review Trends  POC (20 min)
   - Goal of the Project
   - Project plan
-  - POC model
+  - POC 
 -  Retrievel-Augmented Generation (RAG) (10 min)
 
 ---
@@ -69,15 +69,14 @@ Provide **useful insights** from customer feedback to stakeholders in the health
 
 #  Project plan
 
-- The big picture
+- Workshop w. Stakeholder 
 - POC pipeline 
-  - Initial Stakeholder Consultation
   - Batch process, API, cleaning
   - Model Development  & Deployment
   - Visualization and Reporting
 
 - Dashboards for specific stakeholders (accessible)
-- Include feedback from actions into the model.
+- Improve POC based on stakeholder (feedback loop).
 
 ---
 
@@ -123,21 +122,26 @@ Let's define role, needs and metrics of our stakeholders.
 
 
 ---
-# Stakeholder roles examples
+# Stakeholder Roles Examples
 
-1. Product owner 
-    -  Needs to know what people do (not) like about a specific product.
-    -  Interested in the lifecycle since release. 
-    -  Metric: Estimate feedback can one expect.
+1. Product Owner
+    - Needs to know what people do and do not like about a specific product.
+    - Interested in the product lifecycle since release.
+    - Metrics:
+      - Time between product release and reviews.
+      - How the review sentiment changes over time.
 
-
-2. Marketing Strategies
-    - Interested in products that work via Indirect Consumer Marketing 
-    - Purchase decision within a household or close relationship
+2. Marketing Strategist
+    - Interested in products that work via indirect consumer marketing.
+    - Focuses on purchase decisions made within a household or close relationship.
+    - Metric: Product reviews that mention family members.
     - Example: A spouse or partner buys your shower gel.
+
+---
 
 
 ---
+
 #  Pipeline (Batch Processing, API Call & NLP)
 
 <img src="flowdiagramm\1721376795149.png" alt="flow_diagramm" style="max-width: 61%;">
@@ -180,47 +184,157 @@ Accessible "micro insights" for each stakeholder.
 - Presentation to larger audience. 
 
 
+---
+
+
+# RAG: Retrieval-Augmented Generation
+
+---
+
+# The goal 
+
+ - Feeding  LLMs domain specific knowledge
+  -  Better answers
+  -  References
+  -  Publishing date of reference /information
+
+
+---
+# Main challange
+
+
+<div class="columns">
+<div>
+
+  1) Performance.
+  2) Getting the right data.
+  3) Knowing what its (still) the right data.
+
+
+
+</div>
+<div>
+
+<img src="https://media.licdn.com/dms/image/D4D22AQHR8Uzguky9HA/feedshare-shrink_2048_1536/0/1710348364362?e=2147483647&v=beta&t=9Xt8oJMOgyF-ul5gowKv5DG_-SXwbVgMX6g9dXimjQw" alt="RAG_meme" style="max-width: 85%; ">
+
+</div>
+</div>
 
 
 
 ---
 
-# RAG
+# Hypothesis 
+- Best Practices & existing tech stack to minimize the uptake in tech burden.
 
+- Domain specific experts are key.
+  - They understand the problem
+  - The know what data exists
+  - The know what changed over the last years. 
+
+
+Input quality of data is crucial. 
+- (semi-) structured data might be better for retrieval.
+ 
+
+---
+
+## Architecture / Goasl
+
+- **RAG Pipeline**: Combines retrieval of relevant information with generative AI models to produce accurate and contextually relevant responses.
+
+
+- **Objective**: Enhance accuracy in customer support responses.
+- **Method**: Integrate domain-specific knowledge with a pretrained model.
+
+**Implementation Tool**: Ollama (DIY) , Azure (name of the fancy stuff)(?)
 
 
 ---
 
-RAG (Retrieval-Augmented Generation) Integration
-- For information retrieval to enhance accuracy.
-- We "feed" domain specific knowledge into a pretrained model.
+## Toughs on Query Processing 
 
-**Implementation:**  Ollama
-- Keep and eye on existing workflows and systems.
+- **Tokenization**: pre-trained tokenizers from popular models (e.g., BERT) can save time and resources.
+- **Embedding**:  BERT, GPT, or domain-specific models.
+- **Ranking**:  User feedback!
+- **Selection**: Computationally efficient solution.
 
----
-
-# Considerations: Architecture 
-
+I would follow industry standards and stick the existing tech stack (if possible) and focus on human feedback to the model. 
 
 ---
 
+## Choice of Generative Model
 
-# Interaction between retrieval and generation components
-
----
-
-# Querying process:
-
-- Align with existing Tech Stack if possible.
-- Tokenization
-- 
+- **Model Selection**: Use models from [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) for reference.
+- **A/B Testing** to find the best performing model for specifc uscase.
 
 
 ---
-# Choice of generative model.
-- A/B testing at low costs
-- Ollama. ( GPT-4, Llama 3) and Langchain
+
+## Challenges, Considerations, and Evaluation Metrics
+
+- **Deployment Options**: Local vs. Cloud
+  - **Local**: Better data privacy but higher setup costs.
+  - **Cloud**: Easier access to powerful models but involves ongoing costs.
+  
+- **Performance**: Evaluate speed and accuracy.
+- **Contextual Relevance**: Ensure the model understands the specific use case.
+- **Data Privacy**: Secure sensitive customer data.
+
+**Evaluation Metrics**:
+- Accuracy
+- Response Time
+- Customer Satisfaction (Experts!)
+
+---
+
+## Local vs. Cloud Deployment vs. Self-hosted Models
+
+
+<div class="columns">
+<div>
+
+### API Usage
+- **Pros**:
+  - Quick setup
+  - Access to advanced models
+- **Cons**:
+  - Less control
+  - Ongoing cost per token
+
+</div>
+<div>
+
+
+### Self-hosted Models
+- **Pros**:
+  - Full control over the model
+  - Customization possibilities
+- **Cons**:
+  - High initial costs (GPU, infrastructure)
+  - Maintenance complexity
+</div>
+</div>
+
+
+---
+
+## Ethical Considerations
+
+- **Bias Mitigation**: Ensure the model is free from biases.
+- **Transparency**: Inform users about AI-generated responses.
+- **Data Privacy**: Protect user data in compliance with regulations.
+
+---
+
+## Conclusion
+
+- **RAG Pipelines**: A powerful tool to improve customer support with accurate and relevant responses.
+
+- Consultants should focus on:  
+  - Close collaboration with domain experts 
+  - Close aligment with existing cloud infrastructure. 
+  - Garbage in, garbage out (GIGO) 
 
 ---
 
