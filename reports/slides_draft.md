@@ -84,7 +84,11 @@ Provide **useful insights** from customer feedback to stakeholders in the health
  
  - Overall good quality of the reviews. 
  - Bots/Spam seems to be filtered out.
- - **Assumption:** Reviews are "honest" i.e. we can implement what they say to improve products. ( We can test this later)
+
+
+ - **Assumption:** Reviews are "honest" 
+    - We can implement what they say to improve products.
+    - We can test this assumption with the POC.
 
 
 ---
@@ -100,14 +104,13 @@ Provide **useful insights** from customer feedback to stakeholders in the health
   3) ASIN codes: >60k unique product
 
 
-**Let's focus on the core needs of specific stakeholders.**
+**Let's focus on  micro level cases for specific stakeholders.**
 
 
 </div>
 <div>
 
-Show Image of the Topic map here. 
-<img src="../data/raw/profile_Felix_Schilling.jpg" alt="profil_felix" style="max-width: 55%; border-radius: 50%;">
+<img src="screendumps/intertopic_distance_whole_sample.PNG" alt="inter_topic" style="max-width: 85%; ">
 
 </div>
 </div>
@@ -136,9 +139,6 @@ Let's define role, needs and metrics of our stakeholders.
     - Focuses on purchase decisions made within a household or close relationship.
     - Metric: Product reviews that mention family members.
     - Example: A spouse or partner buys your shower gel.
-
----
-
 
 ---
 
@@ -181,7 +181,7 @@ Accessible "micro insights" for each stakeholder.
 - Initial Meeting
 - POC presentation for low level stakeholders
 - Revision POC based on stakeholder feedback
-- Presentation to larger audience. 
+- Presentation to a larger audience. 
 
 
 ---
@@ -233,16 +233,15 @@ Accessible "micro insights" for each stakeholder.
   - The know what changed over the last years. 
 
 
-Input quality of data is crucial. 
-- (semi-) structured data might be better for retrieval.
+Input quality of the data is crucial. 
+- (Semi-) structured data might be better for retrieval.
  
 
 ---
 
-## Architecture / Goasl
+## Architecture / Goal
 
 - **RAG Pipeline**: Combines retrieval of relevant information with generative AI models to produce accurate and contextually relevant responses.
-
 
 - **Objective**: Enhance accuracy in customer support responses.
 - **Method**: Integrate domain-specific knowledge with a pretrained model.
