@@ -8,6 +8,9 @@ This project is a proof of concept (POC) aimed at discovering and analyzing tren
 
 The dataset is a sequential sample of product reviews and allows for a wide set of insights. It contains 494,121 reviews from 05 February 2001 to 11 September 2023. Using an unsupervised text modeling algorithm (BERT) without any text processing groups, the reviews are categorized into more than 3000 topics. Additionally, each review contains an Amazon Standard Identification Number (ASIN), which can be used to fetch various details about a product, including the product title, release date, manufacturer, price, customer reviews, and product specifications.
 
+
+Here are the [slides](slides.pdf).
+
 ## Problem Clarification & Data Requirements
 
 Given the amount and dimensionality of the data, I break down stakeholders into specific groups and develop metrics for individual decision making. Next, I process the data with these metrics in mind.

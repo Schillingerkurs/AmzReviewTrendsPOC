@@ -58,6 +58,10 @@ def Load_topics(HERE):
         
     return topics_data
 
+def save_dataframe(df, file_path):
+    """Save the DataFrame with topics to a pickle file."""
+    df.to_pickle(file_path)
+
 
 # Load the DataFrame
 df = load_data(HERE / "data" / "interim" / "hist_review_data_with_topics.pkl")
@@ -69,12 +73,15 @@ topics_data = Load_topics(HERE)
 relations = [2,3,13]
     
 relation_comment = (df.loc[df['topics_reduced'].isin(relations)]
-                    .query("helpful_vote> 100")
-                    [['title', 'text', 'asin']]
+                  
+                  #  [['title', 'text']]
                     )
     
 
+output_file_path = HERE / "data" / "interim" / "indirekt_marketing.pkl"
 
+
+save_dataframe(relation_comment, output_file_path)
 
 
 

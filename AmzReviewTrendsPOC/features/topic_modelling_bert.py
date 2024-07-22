@@ -61,7 +61,6 @@ def save_topic_model(topic_model, model_path, embedding_model):
 
 
 
-
 def main():
     # Load the DataFrame
     df = load_data(HERE / "data" / "raw" / "hist_review_data.pkl")

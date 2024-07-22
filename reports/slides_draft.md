@@ -173,8 +173,7 @@ Accessible "micro insights" for each stakeholder.
 
 
 
-(Screenshot of the streamlit Dashboard)
-
+[Link to the app](http://localhost:8501/)  (Localhost!)
 
 ---
 
@@ -200,8 +199,7 @@ Accessible "micro insights" for each stakeholder.
 
   1) Performance.
   2) Getting the right data.
-  3) Knowing that it's (still) the right data.
-
+  3) Knowing which information is (still) relevant.
 
 
 </div>
@@ -219,41 +217,25 @@ Accessible "micro insights" for each stakeholder.
 # Hypothesis 
 - Best practices & existing tech stack to minimize the uptake in tech burden.
 
-- Domain specific experts are key.
+-  Knowledge of domain specific experts.
   - They understand the problem
   - They know what data exists
   - They know what changed over the last years. 
 
 
 Input quality of the data is crucial. 
-- (Semi-) structured data might be better for retrieval.
+- (Semi-) structured data might be easier to junk.
  
 ---
 
-## How to build this
+# RAG Pipeline 
 
-- **RAG Pipeline**: Follow existing best practices (e.g. from [Nvidida repo](https://github.com/NVIDIA/GenerativeAIExamples?nvid=nv-int-tblg-585510)) using Langchain & Llama Index.
-- **For**
+![Rag_pipline](https://developer-blogs.nvidia.com/wp-content/uploads/2023/12/rag-pipeline-ingest-query-flow-b-1024x480.png)
 
-- **Objective**: Enhance accuracy in customer support responses.
-- **Method**: Integrate domain-specific knowledge with a pre-trained model.
 
-**Implementation Examples**: Ollama (DIY), Azure AI Search (Corporate)
-
+ from [Nvidida Blog](https://github.com/NVIDIA/GenerativeAIExamples?nvid=nv-int-tblg-585510)
 
 ---
-
-## Thoughts on Query Processing 
-
-- **Tokenization**: Pre-trained tokenizers from popular models (e.g., BERT) can save time and resources.
-- **Embedding**:  BERT, GPT, or domain-specific models.
-- **Ranking**:  User feedback!
-- **Selection**: Computationally efficient solution.
-
-Recommendable to follow industry standards and stick to the existing tech stack (if possible) and focus on human feedback to the model. 
-
----
-
 ## Choice of Generative Model
 
 - **Model Selection**: Compare models from [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) for reference.
@@ -279,37 +261,6 @@ Recommendable to follow industry standards and stick to the existing tech stack 
 
 ---
 
-## Local vs. Cloud Deployment vs. Self-hosted Models
-
-
-<div class="columns">
-<div>
-
-### API Usage
-- **Pros**:
-  - Quick setup
-  - Access to advanced models
-- **Cons**:
-  - Less control
-  - Ongoing cost per token
-
-</div>
-<div>
-
-
-### Self-hosted Models
-- **Pros**:
-  - Full control over the model
-  - Customization possibilities
-- **Cons**:
-  - High initial costs (GPU, infrastructure)
-  - Maintenance complexity
-</div>
-</div>
-
-
----
-
 ## Ethical Considerations
 
 - **Bias Mitigation**: Ensure the model is free from biases.
@@ -320,12 +271,11 @@ Recommendable to follow industry standards and stick to the existing tech stack 
 
 ## Conclusion
 
-- **RAG Pipelines**: A powerful tool to improve customer support with accurate and relevant responses.
-
-- Consultants should focus on:  
-  - Close collaboration with domain experts 
+- Consultants should :  
+  - Collaborate with domain experts 
   - Close alignment with existing cloud infrastructure. 
-  - Garbage in, garbage out (GIGO) 
+
+- Garbage in, garbage out (GIGO) applies to RAGs aswell.
 
 ---
 
